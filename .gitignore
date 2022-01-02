@@ -1,0 +1,6 @@
+# vscode
+**/*/.vscode/
+
+# Java
+**/*/Java/bin/
+**/*/Java/lib/
