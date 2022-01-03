@@ -7,7 +7,7 @@ class Main {
 
     private static int N, M, K, C[], T[][];
     private static ArrayList<Integer> X;
-    private static final int INF = (-1 >>> 3);
+    private static final int INF = -1 >>> 2;
 
     public static void main(String[] args) throws Exception {
 
@@ -64,9 +64,15 @@ class Main {
 
     private static void initTimes() throws Exception {
         T = new int[N + 1][N + 1];
-        for (int i = 1; i <= N; i++)
-            for (int j = 1; j <= N; j++)
-                T[i][j] = INF;
+        setInfinity();
+        setRoads();
+    }
+
+    private static void setInfinity() {
+        for (int i = 1; i <= N; i++) for (int j = 1; j <= N; j++) T[i][j] = INF;
+    }
+
+    private static void setRoads() throws Exception {
         for (int i = 0; i < M; i++) {
             int A = read();
             int B = read();
@@ -84,7 +90,6 @@ class Main {
     private static int read() throws Exception {
         int c, n = System.in.read() & 15;
         while ((c = System.in.read()) > 32) n = (n << 3) + (n << 1) + (c & 15);
-        if (c == 13) System.in.read();
         return n;
     }
 
