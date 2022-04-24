@@ -68,51 +68,6 @@ class LongQueue {
 
 }
 
-class Reader {
-
-    private final int BUFFER_SIZE = 1 << 10;
-    private int bufferIndex, bufferSize;
-    byte[] buffer;
-
-    Reader() {
-        buffer = new byte[BUFFER_SIZE];
-        bufferIndex = bufferSize = 0;
-    }
-
-    boolean nextOp() throws Exception {
-        byte c;
-        while ((c = read()) <= 32);
-        return c == 68;
-    }
-
-    int nextInt() throws Exception {
-        int n = 0;
-        byte c;
-        while ((c = read()) <= 32);
-
-        boolean isPositive = isNumber(c);
-        if (!isPositive) c = read();
-
-        do n = (n << 3) + (n << 1) + (c & 15);
-        while (isNumber(c = read()));
-
-        return isPositive ? n : ~n + 1;
-    }
-
-    private boolean isNumber(byte c) {
-        return 47 < c && c < 58;
-    }
-
-    private byte read() throws Exception {
-        if (bufferIndex == bufferSize) {
-            bufferSize = System.in.read(buffer, bufferIndex = 0, BUFFER_SIZE);
-            if (bufferSize < 0) buffer[0] = -1;
-        }
-        return buffer[bufferIndex++];
-    }
-
-}
-
 class Heap {
 
     private final int MAX_SIZE = 1 << 20;
