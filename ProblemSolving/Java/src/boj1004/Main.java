@@ -1,4 +1,4 @@
-package boj;
+package boj1004;
 
 class Main {
 
