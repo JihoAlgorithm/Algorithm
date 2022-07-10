@@ -1,4 +1,3 @@
-"""BOJ 18242"""
 import io
 import os
 
