@@ -5,4 +5,8 @@
 **/*/Java/bin/
 **/*/Java/lib/
 
+# Python
+env/
+__pycache__/
+
 .DS_Store
