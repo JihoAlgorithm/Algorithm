@@ -1,0 +1,14 @@
+13
+temperature +3
+oxygen +5
+temperature +1
+temperature +1
+temperature +3
+temperature +3
+oxygen +4
+temperature +2
+ocean +2
+oxygen +4
+ocean +5
+temperature +1
+temperature +3
