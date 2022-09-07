@@ -2,16 +2,14 @@ import io
 import os
 
 input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
-mapper = [[chr((i + j + 1) % 26 + 65) for j in range(26)] for i in range(26)]
+mapper = [[chr((i + j - 1) % 26 + 65) for j in range(27)] for i in range(27)]
 
 while 1:
-    key = input()
-    if key == b"0\n":
+    key = input().rstrip()
+    if key == b"0":
         break
-    plain = input()[:-1]
-    length = len(key) - 1
+    plain = input().rstrip()
+    length = len(key)
 
-    res = [
-        mapper[(key[i % length] & 31) - 1][(b & 31) - 1] for i, b in enumerate(plain)
-    ]
+    res = [mapper[key[i % length] & 31][b & 31] for i, b in enumerate(plain)]
     print(*res, sep="")
