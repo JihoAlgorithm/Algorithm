@@ -1,0 +1,6 @@
+cat dog emu
+frog wolf bear
+aaa aaa zzz
+aaa zzz bbb
+zzz aaa yyy
+#
